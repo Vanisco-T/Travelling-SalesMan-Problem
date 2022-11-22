@@ -75,6 +75,7 @@ int tsp(int last_city,int current_cost,int** graph){
             
         }
         current_pathweight += graph[k][last_city];
+        printf("\nLe cout de se chemin:%d\n",current_pathweight);
         min_path = min(min_path,current_pathweight);
         j++;
     } while (next_permutation(vec,0,n-1));
