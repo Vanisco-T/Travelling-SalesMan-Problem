@@ -49,21 +49,34 @@ bool next_permutation(int A[],int l,int r){
 
 //Travelling salesman fonction
 int tsp(int last_city,int current_cost,int** graph){
-    int* vec=(int*)malloc(n-1*sizeof(int));
-    for (int i = 0; i < n; i++){
-        if(i !=last_city)
+    int* vec=(int*)malloc(n*sizeof(int));
+    //Le tableau du reste de ville qui serait permuter
+    for (int i = 0; i < n; i++)
             vec[i]=i;
-    }
+    //Elimination de la ville du depart dans le tableau
+    for(int c=last_city;c<n;c++)
+            vec[c]=vec[c+1];
+    n--;
     int min_path=INT_MAX;
+    int j=1;
     do{
+        printf("La permutation: %d \n",j);
+        for (int i = 0; i < n; i++){
+        printf("%d\t ",vec[i]);
+        }
+        printf("\n");
         int current_pathweight = 0;
         int k=last_city;
-        for (int i = 0; i < n-1; i++){
-            current_pathweight += graph[k][vec[i]];
-            k=vec[i];
+        for (int i = 0; i < n; i++){
+            if (i != last_city); {
+                current_pathweight += graph[k][vec[i]];
+                k=vec[i];
+            }
+            
         }
         current_pathweight += graph[k][last_city];
         min_path = min(min_path,current_pathweight);
+        j++;
     } while (next_permutation(vec,0,n-1));
     
   return min_path;     
