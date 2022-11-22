@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "graph.h"
+#include <time.h>
+
 
 
 //The adjacent cities contain value between 1 and 10
@@ -13,14 +15,17 @@ int** generate(int n){
     for (int i = 0; i < n; i++){
        p[i]=malloc(sizeof(int*)*n);
     }
+                    srand(time(NULL));
+
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
                if(i==j){
                 p[i][j]=0;
                }
                else{
-                int random=rand()%10+1;
-                p[i][j]=random;
+                
+                p[i][j]=rand()%10+1;
+                p[j][i]=p[i][j];
                }
             }  
     } 
