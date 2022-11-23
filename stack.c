@@ -6,7 +6,7 @@ Stack new_stack(void){
     return NULL;
 }
 
-Bool is_empty(Stack sta){
+bool is_empty(Stack sta){
     if(sta==NULL)
         return true;
     
@@ -15,13 +15,11 @@ Bool is_empty(Stack sta){
 }
 
 Stack push_stack(Stack sta,int *x){
-    
     StackElement *element=malloc(sizeof(*element));
     if(element==NULL){
         fprintf(stderr,"erreur d'allocation dynamique\n");
         exit(EXIT_FAILURE);
     }
-
     element->valeur=x;
     element->next=sta;
 
@@ -52,10 +50,11 @@ void status(Stack st){
         exit(1);
     }
     while(!is_empty(st)){
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i <3 ; i++)
         {
-             printf("[%d]\n",st->valeur[i]);
+             printf("[%d]\t",st->valeur[i]);
         }
+    printf("\n");
      st=st->next;   
     }
 }

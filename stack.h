@@ -1,12 +1,6 @@
 #ifndef __FILE_H__
 #define __FILE_H__
-
-typedef enum
-{
-    false,
-    true
-    
-}Bool;
+#include <stdbool.h>
 
 typedef struct StackElement
 {
@@ -15,8 +9,9 @@ typedef struct StackElement
 
 }StackElement,*Stack;
 
+
 Stack new_stack(void);
-Bool is_empty(Stack sta);
+bool is_empty(Stack sta);
 Stack push_stack(Stack sta,int *x);
 Stack clear_stack(Stack sta);
 Stack pop_stack(Stack sta);

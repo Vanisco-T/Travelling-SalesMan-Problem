@@ -49,25 +49,27 @@ bool next_permutation(int A[],int l,int r){
 
 //Travelling salesman fonction
 int tsp(int last_city,int current_cost,int** graph){
-    int* vec=(int*)malloc(n*sizeof(int));
+    int t=n;
+    int* vec=(int*)malloc(t*sizeof(int));
     //Le tableau du reste de ville qui serait permuter
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < t; i++)
             vec[i]=i;
     //Elimination de la ville du depart dans le tableau
     for(int c=last_city;c<n;c++)
             vec[c]=vec[c+1];
-    n--;
+    t--;
     int min_path=INT_MAX;
     int j=1;
     do{
-        printf("La permutation: %d \n",j);
-        for (int i = 0; i < n; i++){
-        printf("%d\t ",vec[i]);
+        printf("Le chemin : %d \n%d",j,st);
+        for (int i = 0; i < t; i++){
+        printf("--->%d\t ",vec[i]);
         }
+        printf("--->%d",st);
         printf("\n");
         int current_pathweight = 0;
         int k=last_city;
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < t; i++){
             if (i != last_city); {
                 current_pathweight += graph[k][vec[i]];
                 k=vec[i];
@@ -75,10 +77,10 @@ int tsp(int last_city,int current_cost,int** graph){
             
         }
         current_pathweight += graph[k][last_city];
-        printf("\nLe cout de se chemin:%d\n",current_pathweight);
+        printf("\nLe cout de se chemin est :%d\n",current_pathweight);
         min_path = min(min_path,current_pathweight);
         j++;
-    } while (next_permutation(vec,0,n-1));
+    } while (next_permutation(vec,0,t-1));
     
   return min_path;     
 }
