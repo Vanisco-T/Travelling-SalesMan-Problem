@@ -31,14 +31,14 @@ int main(int argc, char *argv[]){
         t = clock() - t;
         double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
         double seq_time=time_taken;
-        printf("TSP Sequential result:%d\n",res);
+        printf("TSP Sequential result:%d and time %f\n",res,time_taken);
         t=clock();
         pthread_mutex_init(&mutex, NULL);
         pthread_mutex_init(&mutex1, NULL);
         int res1=multi(n,num_thread,n);
         t = clock() - t;
         time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
-        printf("TSP Multi-thread result:%d\n",res1);   
+        printf("TSP Multi-thread result:%d and time %f\n",res1,time_taken);   
         pthread_mutex_destroy(&mutex); 
         break;
     case 'u':
