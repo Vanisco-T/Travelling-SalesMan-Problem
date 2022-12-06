@@ -1,5 +1,5 @@
 tsp : main.o graph.o sequential.o distributed.o stack.o
-	gcc -o tsp main.o graph.o sequential.o distributed.o stack.o
+	gcc -o tsp main.o graph.o sequential.o distributed.o stack.o -pthread
 main.o : main.c graph.c
 		  gcc -c main.c graph.c
 graph.o : graph.c 

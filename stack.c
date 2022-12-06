@@ -44,13 +44,13 @@ Stack clear_stack(Stack sta){
     return new_stack();
 }
 
-void status(Stack st){
+void status(Stack st,int n){
     if(is_empty(st)){
         printf("la pile est vide\n");
         exit(1);
     }
     while(!is_empty(st)){
-        for (int i = 0; i <3 ; i++)
+        for (int i = 0; i <n ; i++)
         {
              printf("[%d]\t",st->valeur[i]);
         }
@@ -62,7 +62,7 @@ void status(Stack st){
 
 Stack pop_stack(Stack sta){
     if(is_empty(sta)){
-        return new_stack();
+        return NULL;
     }
     Stack element=sta->next;
     free(sta);

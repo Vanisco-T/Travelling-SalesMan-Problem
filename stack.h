@@ -15,7 +15,7 @@ bool is_empty(Stack sta);
 Stack push_stack(Stack sta,int *x);
 Stack clear_stack(Stack sta);
 Stack pop_stack(Stack sta);
-void status(Stack st);
+void status(Stack st,int n);
 int *top_stack(Stack sta);
 int stack_length(Stack sta);
 
